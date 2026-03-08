@@ -1,1 +1,10 @@
-
+numpy==1.26.4
+pandas==2.2.2
+torch
+transformers
+networkx
+node2vec
+gensim
+scikit-learn
+matplotlib
+seaborn
