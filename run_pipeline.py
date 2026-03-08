@@ -40,8 +40,6 @@ def main():
     # 4. Build graph
     # Using KG2 because your Colab code used it for Node2Vec training
     # -----------------------------
-    combined_df = torch.utils.data.default_collate  # harmless placeholder removal guard
-    del combined_df  # avoids lint noise
 
     import pandas as pd
     full_df = pd.concat([train_df, test_df], ignore_index=True)
