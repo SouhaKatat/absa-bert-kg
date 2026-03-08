@@ -1,7 +1,20 @@
+import random
+import numpy as np
+import torch
+
+def set_seed(seed=42):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+
 
 import torch
 from torch import nn
 from transformers import AutoModel, BertTokenizerFast
+
+
 
 from src.data_loader import (
     load_and_preprocess_data,
