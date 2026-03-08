@@ -18,7 +18,7 @@ def train_model(model, dataloader, optimizer, criterion, device, epochs):
                 b.to(device) for b in batch
             ]
 
-            model.zero_grad()
+            optimizer.zero_grad()
 
             outputs = model(
                 input_ids,
