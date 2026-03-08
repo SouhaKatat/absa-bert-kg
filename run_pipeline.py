@@ -26,8 +26,8 @@ def main():
     # 2. File paths
     # Replace these with your real dataset filenames
     # -----------------------------
-    train_path = "data/semeval_train.csv"
-    test_path = "data/semeval_test.csv"
+    train_path = "data/semeval 2014 - train.csv"
+    test_path = "data/semeval 2014 - test.csv"
 
     # -----------------------------
     # 3. Load data
