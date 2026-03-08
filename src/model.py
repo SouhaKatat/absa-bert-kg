@@ -1,16 +1,12 @@
-
 import torch
 from torch import nn
 
 
 class BERT_ABSA(nn.Module):
-
     def __init__(self, bert_model, num_classes=3):
-
         super().__init__()
 
         self.bert = bert_model
-
         self.dropout = nn.Dropout(0.1)
 
         hidden_size = self.bert.config.hidden_size
@@ -35,18 +31,15 @@ class BERT_ABSA(nn.Module):
         self.classifier = nn.Linear(1024, num_classes)
 
     def forward(self, input_ids, attention_mask, node_embeddings):
-
         outputs = self.bert(
             input_ids=input_ids,
             attention_mask=attention_mask
         )
 
         pooled = outputs.pooler_output
-
         pooled = self.dropout(pooled)
 
         combined = torch.cat((pooled, node_embeddings), dim=1)
-
         combined = self.dimension_adjustment(combined)
 
         attention_output, _ = self.attention(
@@ -56,9 +49,7 @@ class BERT_ABSA(nn.Module):
         )
 
         combined = attention_output.squeeze(1) + combined
-
         encoded = self.transformer_encoder(combined.unsqueeze(0))
-
         logits = self.classifier(encoded.squeeze(0))
 
         return logits
