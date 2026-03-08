@@ -13,7 +13,8 @@ class BERT_ABSA(nn.Module):
 
         self.dropout = nn.Dropout(0.1)
 
-        self.dimension_adjustment = nn.Linear(768 + 300, 1024)
+        hidden_size = self.bert.config.hidden_size
+        self.dimension_adjustment = nn.Linear(hidden_size + 300, 1024)
 
         self.transformer_layer = nn.TransformerEncoderLayer(
             d_model=1024,
