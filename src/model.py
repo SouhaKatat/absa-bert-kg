@@ -41,7 +41,7 @@ class BERT_ABSA(nn.Module):
             attention_mask=attention_mask
         )
 
-        pooled = outputs[1]
+        pooled = outputs.pooler_output
 
         pooled = self.dropout(pooled)
 
